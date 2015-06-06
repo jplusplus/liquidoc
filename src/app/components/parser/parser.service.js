@@ -4,7 +4,7 @@ angular.module('liquidoc')
   .service('parser', function() {
     return {
       parse: function(template, dataset, active) {
-        return template.replace(/{{(.+)}}/, function(match, exp) {
+        return template.replace(/{{(.+)}}/g, function(match, exp) {
           // Extract path and trim its components
           var path = _.map( exp.split("|"), _.trim );
           // Add the active value as a component of the path

@@ -17,11 +17,11 @@ angular.module('liquidoc')
         scope.possibilities = []
         scope.doc.template = [
           "# Yolo title",
-          "## Subtitle {{ employment2014 }}",
+          "## Subtitle",
           "",
-          "Lorem markdownum demptos colorem sumere dantem. Nostri Turnus, ad undis virus,",
+          "Lorem markdownum {{ gendergap2005 }} demptos colorem sumere dantem. Nostri Turnus, ad undis virus,",
           "vetitae semicaper ab speciem sopita **honesta** in simul et quot. Splendescunt",
-          "omnes, cumque, paravi videres currum, pro adeo monte veteres rege.",
+          "omnes, cumque, paravi videres currum, pro adeo monte veteres rege {{ employment2014 }}.",
           "",
           "Vera ipse Proetus partes, ex deducite nomina se fluunt tu venabula neque et",
           "talis auxiliaris pudori arces, exercent. Inmemor iter, in [urbes",
