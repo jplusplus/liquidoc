@@ -16,8 +16,6 @@ angular.module('liquidoc')
         // Value possibilities
         scope.possibilities = []
 
-        scope.doc.template = '#{{name}} will {{ IF risk < 0.5 THEN "still be around" ELSE "be replaced by robots"}}';
-
         scope.$watch('[doc, active]', function() {
           // Do not use the first line
           var dataset = (scope.doc.dataset || []).slice(1);

@@ -1,4 +1,4 @@
-<select ng-options="value for value in possibilities" ng-model="active" class="form-control" style="display:inline-block; width:auto;">
+<select ng-options="value for value in possibilities" ng-model="active" class="form-control" style="display:inline-block; width:auto;" ng-disabled="!doc.dataset">
   <option value="">Pick a value</option>
 </select>
 <div class="main__viewer__body">

@@ -1,6 +1,6 @@
-<tabset>
+<tabset ng-show="doc.dataset">
     <tab heading="Add variables">
-        <p>   
+        <p>
             <span ng-repeat="button in buttons">
                 <button class="btn btn-default btn-sm" ng-click="insertVar(button)"><span class="glyphicon glyphicon-plus"></span> <span ng-bind="button"></span></button>
             </span>
@@ -22,7 +22,7 @@
             </select>
             <input style="display:inline-block;width:150px" class="form-control" ng-model="newCondition.value">
         </div>
-        
+
         <p><strong><span class="glyphicon glyphicon-align-left"></span> Then show this text</strong></p>
         <p><input class="form-control" ng-model="newCondition.then"></p>
         <p><strong><span class="glyphicon glyphicon-align-left"></span> Else show this text</strong></p>
