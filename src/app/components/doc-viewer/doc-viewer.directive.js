@@ -15,11 +15,8 @@ angular.module('liquidoc')
         scope.active = null;
         // Value possibilities
         scope.possibilities = []
-        scope.doc.template = [
-          "Lorem markdownum {{ gendergap2005 }} demptos colorem sumere dantem. Nostri Turnus, ad undis virus,",
-          "vetitae semicaper ab speciem sopita **honesta** in simul et quot. Splendescunt",
-          "omnes, cumque, paravi videres currum, pro adeo monte veteres rege {{ employment2014 }}.",
-        ].join("\n");
+
+        scope.doc.template = '#{{name}} will {{ IF risk < 0.5 THEN "still be around" ELSE "be replaced by robots"}}';
 
         scope.$watch('[doc, active]', function() {
           // Do not use the first line
@@ -28,10 +25,10 @@ angular.module('liquidoc')
           // using the current dataset and the selected active value
           scope.preview = parser.parse(scope.doc.template, scope.doc.dataset, scope.active);
           // Collect possibilities according to the dataset
-          scope.possibilities = _.map(dataset, function(row, index) {
+          scope.possibilities = _.uniq(_.map(dataset, function(row, index) {
             // Picks from the first column
             return row[0] || null;
-          });
+          }));
         }, true);
       }
     }
