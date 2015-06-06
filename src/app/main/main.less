@@ -3,6 +3,11 @@
   &__editor {
     padding:20px;
     width:40%;
+    position: fixed;
+    top:@navbar-height;
+    left:0;
+    bottom:0;
+    overflow: auto;
   }
 
   &__viewer {
@@ -14,6 +19,7 @@
     bottom:0;
     width:60%;
     border-left:1px solid @gray-lighter;
+    overflow: auto;
 
     &__body {
       margin-top:20px;
