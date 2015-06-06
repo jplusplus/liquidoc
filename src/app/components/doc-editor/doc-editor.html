@@ -33,5 +33,14 @@
 
 <h3>Your template</h3>
 <textarea ng-model="doc.template" placeholder="Your template here" class="form-control form-template"></textarea>
+
 <h3>Your dataset</h3>
-<textarea ng-model="dataset" ng-change="parseCsv(dataset)" placeholder="Your dataset here" class="form-control form-csv"></textarea>
+<p>
+  <textarea ng-model="dataset" ng-change="parseCsv(dataset)" placeholder="Your dataset here" class="form-control form-csv"></textarea>
+</p>
+
+<div class="text-right">
+  <button type="button" class="btn btn-primary btn-lg">
+    Save
+  </button>
+</div>
