@@ -10,9 +10,9 @@ angular.module('liquidoc')
       },
       link: function(scope, attrs, element) {
         scope.doc = scope.docViewer;
-        scope.doc.template = parser.parse([
+        scope.doc.template = [
           "# Yolo title",
-          "## Subtitle",
+          "## Subtitle {{ France | employment2014 }}",
           "",
           "Lorem markdownum demptos colorem sumere dantem. Nostri Turnus, ad undis virus,",
           "vetitae semicaper ab speciem sopita **honesta** in simul et quot. Splendescunt",
@@ -22,7 +22,11 @@ angular.module('liquidoc')
           "talis auxiliaris pudori arces, exercent. Inmemor iter, in [urbes",
           "donavi](http://www.wedrinkwater.com/): tenuit pater inermis ut inposito est",
           "inquit Cephaloque fervebant."
-        ].join("\n"));
+        ].join("\n");
+
+        scope.$watch('doc', function() {
+          scope.preview = parser.parse(scope.doc.template, scope.doc.dataset);
+        }, true);
       }
     }
   })
