@@ -1,6 +1,35 @@
 
-<span ng-repeat="button in buttons">
-    <button class="btn btn-default btn-xs" ng-bind="button" ng-click="insertVar(button)"></button>
-</span>
+<button class="btn btn-success" ng-init="conditionCollapse = false" ng-click="conditionCollapse = !conditionCollapse"><span class="glyphicon glyphicon-sunglasses"></span> Create condition</button>
+
+<div class="well" collapse="conditionCollapse">
+    <p>
+        <strong>If </strong>
+        <select style="display:inline-block;width:100px" class="form-control" ng-model="newCondition.var" ng-options="button for button in buttons">
+            <option value="">Select</option>
+        </select>
+
+
+        <select style="display:inline-block;width:100px" class="form-control" ng-model="newCondition.type">
+            <option value="">equal to</option>
+            <option value="<">smaller then</option>
+            <option value=">">greater then</option>
+        </select>
+        <input style="display:inline-block;width:100px" class="form-control" ng-model="newCondition.value">
+    </p>
+    
+    <p><strong>Then</strong></p>
+    <input class="form-control" ng-model="newCondition.then">
+    <p><strong>Other</strong></p>
+    <input class="form-control" ng-model="newCondition.other">
+    <button class="btn btn-default btn-xs" ng-click="insertCondition()">Add at cursor</button>
+</div>
+
+<div class="well">
+    <span ng-repeat="button in buttons">
+        <button class="btn btn-default btn-xs" ng-bind="button" ng-click="insertVar(button)"></button>
+    </span>
+</div>
+<h3>Your template</h3>
 <textarea ng-model="doc.template" placeholder="Your template here" class="form-control form-template"></textarea>
+<h3>Your dataset</h3>
 <textarea ng-model="dataset" ng-change="parseCsv(dataset)" placeholder="Your dataset here" class="form-control form-csv"></textarea>

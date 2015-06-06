@@ -11,8 +11,9 @@ angular.module('liquidoc')
       link: function(scope, element, attrs) {
         scope.doc = scope.docEditor;
 
+        scope.conditionCollapse = true;
         scope.doc.template = '';
-
+        scope.newCondition = {};
         scope.buttons = ['test'];
 
         scope.parseCsv = function(dataset){
@@ -35,6 +36,14 @@ angular.module('liquidoc')
         scope.insertVar = function(label){
           var textField = element.find('textarea.form-template');
           insertAtCursor(textField.get(0), '{{'+label+'}}');
+        };
+
+        scope.insertCondition = function(){
+          console.log(scope.newCondition);
+          var logic = (scope.newCondition.type)?scope.newCondition.type:'=';
+          var cond = 'IF '+scope.newCondition.var+' '+logic+' '+scope.newCondition.value + ' THEN "' + scope.newCondition.then + '" OTHER "' + scope.newCondition.other + '"';
+          var textField = element.find('textarea.form-template');
+          insertAtCursor(textField.get(0), '{{'+cond+'}}');
         };
 
 
