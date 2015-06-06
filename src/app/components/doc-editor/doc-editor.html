@@ -7,26 +7,27 @@
         </p>
     </tab>
     <tab heading="Add conditions">
-        <p>
-            <strong>If </strong>
-            <select style="display:inline-block;width:100px" class="form-control" ng-model="newCondition.var" ng-options="button for button in buttons">
+        <p><strong><span class="glyphicon glyphicon-cog"></span> The condition</strong></p>
+        <div class="well">
+            <strong class="shift-right" style="font-size:1.2em">If </strong>
+            <select style="display:inline-block;width:150px" class="form-control shift-right" ng-model="newCondition.var" ng-options="button for button in buttons">
                 <option value="">Select</option>
             </select>
 
 
-            <select style="display:inline-block;width:100px" class="form-control" ng-model="newCondition.type">
+            <select style="display:inline-block;width:150px" class="form-control shift-right" ng-model="newCondition.type">
                 <option value="">equal to</option>
                 <option value="<">smaller then</option>
                 <option value=">">greater then</option>
             </select>
-            <input style="display:inline-block;width:100px" class="form-control" ng-model="newCondition.value">
-        </p>
+            <input style="display:inline-block;width:150px" class="form-control" ng-model="newCondition.value">
+        </div>
         
-        <p><strong>Then</strong></p>
-        <input class="form-control" ng-model="newCondition.then">
-        <p><strong>Else</strong></p>
+        <p><strong><span class="glyphicon glyphicon-align-left"></span> Then show this text</strong></p>
+        <p><input class="form-control" ng-model="newCondition.then"></p>
+        <p><strong><span class="glyphicon glyphicon-align-left"></span> Else show this text</strong></p>
         <p><input class="form-control" ng-model="newCondition.other"></p>
-        <p><button class="btn btn-default btn-sm" ng-click="insertCondition()"><span class="glyphicon glyphicon-plus"></span> Add condition</button></p>
+        <p><button class="btn btn-default" ng-click="insertCondition()"><span class="glyphicon glyphicon-plus"></span> Add condition</button></p>
     </tab>
 </tabset>
 
