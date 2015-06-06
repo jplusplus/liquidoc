@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('liquidoc')
-  .directive('docViewer', function(){
+  .directive('docViewer', function(parser){
     return {
       restrict: 'A',
       templateUrl: 'app/components/doc-viewer/doc-viewer.html',
@@ -10,7 +10,7 @@ angular.module('liquidoc')
       },
       link: function(scope, attrs, element) {
         scope.doc = scope.docViewer;
-        scope.doc.template = [
+        scope.doc.template = parser.parse([
           "# Yolo title",
           "## Subtitle",
           "",
@@ -22,7 +22,7 @@ angular.module('liquidoc')
           "talis auxiliaris pudori arces, exercent. Inmemor iter, in [urbes",
           "donavi](http://www.wedrinkwater.com/): tenuit pater inermis ut inposito est",
           "inquit Cephaloque fervebant."
-        ].join("\n");
+        ].join("\n"));
       }
     }
   })
