@@ -27,11 +27,13 @@
 
     <div ng-include="'app/components/navbar/navbar.html'"></div>
 
-    <div class="container-fluid" ng-controller="MainCtrl">
-      <div clas="row">
-        <div class="col-xs-6" doc-editor="doc">
+    <div class="container-fluid main" ng-controller="MainCtrl">
+      <div class="">
+        <div class="main__editor" doc-editor="doc">
+          {{doc}}
         </div>
-        <div class="col-xs-6" doc-viewer="doc">
+        <div class="main__viewer" doc-viewer="doc">
+          {{doc}}
         </div>
       </div>
     </div>

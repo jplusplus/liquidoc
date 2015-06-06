@@ -1,0 +1,24 @@
+.main {
+
+  &__editor {
+    padding:20px;
+    width:40%;
+  }
+
+  &__viewer {
+    padding:20px;
+    background: #FFF;
+    position: fixed;
+    top:@navbar-height;
+    right:0;
+    bottom:0;
+    width:60%;
+    border-left:1px solid @gray-lighter;
+
+    &__body {
+      margin-top:20px;
+      padding:20px 0;
+      border-top:1px dashed @gray-lighter;
+    }
+  }
+}

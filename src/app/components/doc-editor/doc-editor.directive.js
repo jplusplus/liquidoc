@@ -32,7 +32,7 @@ angular.module('liquidoc')
             if(scope.buttons.indexOf(column) === -1){
               scope.buttons.push(column);
             }
-            
+
           };
           console.log(scope.doc.dataset);
         };
@@ -69,6 +69,8 @@ angular.module('liquidoc')
           } else {
               myField.value += myValue;
           }
+
+          scope.doc.template = myField.value;
         }
 
       }
