@@ -17,6 +17,7 @@ angular.module('liquidoc')
         scope.buttons = ['test'];
 
         scope.parseCsv = function(dataset){
+          console.log(dataset);
           var linesRaw, lines = [];
 
           linesRaw = dataset.split("\n");
@@ -28,7 +29,10 @@ angular.module('liquidoc')
           scope.buttons = [];
           for (var i = 1; i < lines[0].length; i++) {
             var column = lines[0][i];
-            scope.buttons.push(column);
+            if(scope.buttons.indexOf(column) === -1){
+              scope.buttons.push(column);
+            }
+            
           };
           console.log(scope.doc.dataset);
         };
@@ -41,7 +45,7 @@ angular.module('liquidoc')
         scope.insertCondition = function(){
           console.log(scope.newCondition);
           var logic = (scope.newCondition.type)?scope.newCondition.type:'=';
-          var cond = 'IF '+scope.newCondition.var+' '+logic+' '+scope.newCondition.value + ' THEN "' + scope.newCondition.then + '" OTHER "' + scope.newCondition.other + '"';
+          var cond = 'IF '+scope.newCondition.var+' '+logic+' '+scope.newCondition.value + ' THEN "' + scope.newCondition.then + '" ELSE "' + scope.newCondition.other + '"';
           var textField = element.find('textarea.form-template');
           insertAtCursor(textField.get(0), '{{'+cond+'}}');
         };
