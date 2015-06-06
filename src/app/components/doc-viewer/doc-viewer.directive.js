@@ -16,17 +16,9 @@ angular.module('liquidoc')
         // Value possibilities
         scope.possibilities = []
         scope.doc.template = [
-          "# Yolo title",
-          "## Subtitle",
-          "",
           "Lorem markdownum {{ gendergap2005 }} demptos colorem sumere dantem. Nostri Turnus, ad undis virus,",
           "vetitae semicaper ab speciem sopita **honesta** in simul et quot. Splendescunt",
           "omnes, cumque, paravi videres currum, pro adeo monte veteres rege {{ employment2014 }}.",
-          "",
-          "Vera ipse Proetus partes, ex deducite nomina se fluunt tu venabula neque et",
-          "talis auxiliaris pudori arces, exercent. Inmemor iter, in [urbes",
-          "donavi](http://www.wedrinkwater.com/): tenuit pater inermis ut inposito est",
-          "inquit Cephaloque fervebant."
         ].join("\n");
 
         scope.$watch('[doc, active]', function() {
