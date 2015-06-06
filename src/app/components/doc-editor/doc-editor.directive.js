@@ -9,7 +9,7 @@ angular.module('liquidoc')
         docEditor: "="
       },
       link: function(scope, attrs, element) {
-
+        scope.doc = scope.docEditor;
       }
     }
   })
