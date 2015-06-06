@@ -8,12 +8,12 @@ angular.module('liquidoc')
       scope: {
         docEditor: "="
       },
-      link: function(scope, attrs, element) {
+      link: function(scope, element, attrs) {
         scope.doc = scope.docEditor;
 
         scope.doc.template = '';
 
-        scope.buttons = [];
+        scope.buttons = ['test'];
 
         scope.parseCsv = function(dataset){
           var linesRaw, lines = [];
@@ -32,13 +32,13 @@ angular.module('liquidoc')
           console.log(scope.doc.dataset);
         };
 
-        /*scope.insertVar = function(){
-          var textField = element.find();
-          insertAtCursor()
+        scope.insertVar = function(label){
+          var textField = element.find('textarea.form-template');
+          insertAtCursor(textField.get(0), '{{'+label+'}}');
         };
 
 
-
+        // insertAtCursor is stolen from http://stackoverflow.com/questions/11076975/insert-text-into-textarea-at-cursor-position-javascript
         function insertAtCursor(myField, myValue) {
           //IE support
           if (document.selection) {
@@ -55,8 +55,8 @@ angular.module('liquidoc')
                   + myField.value.substring(endPos, myField.value.length);
           } else {
               myField.value += myValue;
-          }*/
-      //}
+          }
+        }
 
       }
     }
