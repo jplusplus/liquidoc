@@ -16,6 +16,24 @@ angular.module('liquidoc')
         scope.newCondition = {};
         scope.buttons = ['test'];
 
+        //var Fledit = require("fledit");
+        // Fledit file
+        var fledit = null;
+
+        scope.save = function(doc) {
+          if(fledit === null) {
+            Fledit.create(doc).once("complete", function(file) {
+              // Save the file instance
+              fledit = file;
+              console.log( file.link() );
+              console.log( file.admin() );
+            })
+          } else {
+            fledit.content = doc;
+            fledit.save();
+          }
+        }
+
         scope.parseCsv = function(dataset){
           console.log(dataset);
           var linesRaw, lines = [];

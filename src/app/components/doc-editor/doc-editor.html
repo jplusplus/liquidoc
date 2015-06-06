@@ -1,46 +1,49 @@
-<tabset ng-show="doc.dataset">
-    <tab heading="Add variables">
-        <p>
-            <span ng-repeat="button in buttons">
-                <button class="btn btn-default btn-sm" ng-click="insertVar(button)"><span class="glyphicon glyphicon-plus"></span> <span ng-bind="button"></span></button>
-            </span>
-        </p>
-    </tab>
-    <tab heading="Add conditions">
-        <p><strong><span class="glyphicon glyphicon-cog"></span> The condition</strong></p>
-        <div class="well">
-            <strong class="shift-right" style="font-size:1.2em">If </strong>
-            <select style="display:inline-block;width:150px" class="form-control shift-right" ng-model="newCondition.var" ng-options="button for button in buttons">
-                <option value="">Select</option>
-            </select>
+<form ng-submit="save(doc)">
+  <tabset ng-show="doc.dataset">
+      <tab heading="Add variables">
+          <p>
+              <span ng-repeat="button in buttons">
+                  <button class="btn btn-default btn-sm" ng-click="insertVar(button)"><span class="glyphicon glyphicon-plus"></span> <span ng-bind="button"></span></button>
+              </span>
+          </p>
+      </tab>
+      <tab heading="Add conditions">
+          <p><strong><span class="glyphicon glyphicon-cog"></span> The condition</strong></p>
+          <div class="well">
+              <strong class="shift-right" style="font-size:1.2em">If </strong>
+              <select style="display:inline-block;width:150px" class="form-control shift-right" ng-model="newCondition.var" ng-options="button for button in buttons">
+                  <option value="">Select</option>
+              </select>
 
 
-            <select style="display:inline-block;width:150px" class="form-control shift-right" ng-model="newCondition.type">
-                <option value="">equal to</option>
-                <option value="<">smaller then</option>
-                <option value=">">greater then</option>
-            </select>
-            <input style="display:inline-block;width:150px" class="form-control" ng-model="newCondition.value">
-        </div>
+              <select style="display:inline-block;width:150px" class="form-control shift-right" ng-model="newCondition.type">
+                  <option value="">equal to</option>
+                  <option value="<">smaller then</option>
+                  <option value=">">greater then</option>
+              </select>
+              <input style="display:inline-block;width:150px" class="form-control" ng-model="newCondition.value">
+          </div>
 
-        <p><strong><span class="glyphicon glyphicon-align-left"></span> Then show this text</strong></p>
-        <p><input class="form-control" ng-model="newCondition.then"></p>
-        <p><strong><span class="glyphicon glyphicon-align-left"></span> Else show this text</strong></p>
-        <p><input class="form-control" ng-model="newCondition.other"></p>
-        <p><button class="btn btn-default" ng-click="insertCondition()"><span class="glyphicon glyphicon-plus"></span> Add condition</button></p>
-    </tab>
-</tabset>
+          <p><strong><span class="glyphicon glyphicon-align-left"></span> Then show this text</strong></p>
+          <p><input class="form-control" ng-model="newCondition.then"></p>
+          <p><strong><span class="glyphicon glyphicon-align-left"></span> Else show this text</strong></p>
+          <p><input class="form-control" ng-model="newCondition.other"></p>
+          <p><button class="btn btn-default" ng-click="insertCondition()"><span class="glyphicon glyphicon-plus"></span> Add condition</button></p>
+      </tab>
+  </tabset>
 
-<h3>Your template</h3>
-<textarea ng-model="doc.template" placeholder="Your template here" class="form-control form-template"></textarea>
+  <h3>Your template</h3>
+  <textarea ng-model="doc.template" placeholder="Your template here" class="form-control form-template"></textarea>
 
-<h3>Your dataset</h3>
-<p>
-  <textarea ng-model="dataset" ng-change="parseCsv(dataset)" placeholder="Your dataset here" class="form-control form-csv"></textarea>
-</p>
+  <h3>Your dataset</h3>
+  <p>
+    <textarea ng-model="dataset" ng-change="parseCsv(dataset)" placeholder="Your dataset here" class="form-control form-csv"></textarea>
+  </p>
 
-<div class="text-right">
-  <button type="button" class="btn btn-primary btn-lg">
-    Save
-  </button>
-</div>
+  <div class="text-right">
+    <button type="submit" class="btn btn-primary btn-lg">
+      Save
+    </button>
+  </div>
+  <br class="clearfix" />
+</form>
