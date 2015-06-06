@@ -10,6 +10,54 @@ angular.module('liquidoc')
       },
       link: function(scope, attrs, element) {
         scope.doc = scope.docEditor;
+
+        scope.doc.template = '';
+
+        scope.buttons = [];
+
+        scope.parseCsv = function(dataset){
+          var linesRaw, lines = [];
+
+          linesRaw = dataset.split("\n");
+          for (var i = 0; i < linesRaw.length; i++) {
+            lines.push( linesRaw[i].split("\t") );
+          };
+          scope.doc.dataset = lines;
+
+          scope.buttons = [];
+          for (var i = 1; i < lines[0].length; i++) {
+            var column = lines[0][i];
+            scope.buttons.push(column);
+          };
+          console.log(scope.doc.dataset);
+        };
+
+        /*scope.insertVar = function(){
+          var textField = element.find();
+          insertAtCursor()
+        };
+
+
+
+        function insertAtCursor(myField, myValue) {
+          //IE support
+          if (document.selection) {
+              myField.focus();
+              sel = document.selection.createRange();
+              sel.text = myValue;
+          }
+          //MOZILLA and others
+          else if (myField.selectionStart || myField.selectionStart == '0') {
+              var startPos = myField.selectionStart;
+              var endPos = myField.selectionEnd;
+              myField.value = myField.value.substring(0, startPos)
+                  + myValue
+                  + myField.value.substring(endPos, myField.value.length);
+          } else {
+              myField.value += myValue;
+          }*/
+      //}
+
       }
     }
   })

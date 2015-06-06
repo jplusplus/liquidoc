@@ -1,1 +1,6 @@
-1
+
+<span ng-repeat="button in buttons">
+    <button class="btn btn-default btn-xs" ng-bind="button"></button>
+</span>
+<textarea ng-model="doc.template" placeholder="Your template here" class="form-control form-template"></textarea>
+<textarea ng-model="dataset" ng-change="parseCsv(dataset)" placeholder="Your dataset here" class="form-control form-csv"></textarea>
