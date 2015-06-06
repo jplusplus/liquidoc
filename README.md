@@ -21,7 +21,7 @@ There is a working demo of the interface [here][demo].
    LibreOffice, OpenOffice or Excel.
 2. Write the **template** for your article, using the interface at the top to place variables 
    directly, or introduce conditional statements that will check the data to determine the final 
-   text.
+   text. (Usage hint: [Angular filters](https://docs.angularjs.org/guide/filter) are supported!)
 3. Use the variables drop-down selector on the right to render the text according to the variable 
    you want to use.
 
