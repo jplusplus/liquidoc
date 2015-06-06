@@ -1,4 +1,4 @@
-# liquidoc
+![Liquidoc](https://raw.githubusercontent.com/jplusplus/liquidoc/master/logo/liquidoc-logo-300px.png?token=AAJwfNP_oR0XF5E4sS9QJjo9yG4kFm35ks5VfFawwA%3D%3D)
 
 Liquidoc is an application to facilitate the creation of adaptive text. It's inspired 
 by the [New York Times experiment][nytimes] with location-aware articles which shape themselves 
